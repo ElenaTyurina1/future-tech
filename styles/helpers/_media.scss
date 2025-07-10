@@ -1,0 +1,72 @@
+@use './functions' as *; 
+//as * — это указание импортировать все имена (функции, миксины, переменные) из модуля в глобальное пространство имен. 
+//Это означает, что вы можете использовать функции, миксины и переменные из этого модуля без указания префикса (например, function.name()).
+
+$laptop: 1440.98;
+$tablet: 1023.98;
+$mobile: 767.98;
+$mobile-s: 480.98;
+
+@mixin laptop-above {
+    @media (width > rem($laptop)) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media (width <= rem($laptop)) {
+        @content;
+    }
+}
+
+@mixin tablet-above {
+    @media (width > rem($tablet)) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (width <= rem($tablet)) {
+        @content;
+    }
+}
+
+@mixin mobile-above {
+    @media (width > rem($mobile)) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (width <= rem($mobile)) {
+        @content;
+    }
+}
+
+@mixin mobile-s-above {
+    @media (width > rem($mobile-s)) {
+        @content;
+    }
+}
+
+@mixin mobile-s {
+    @media (width <= rem($mobile-s)) {
+        @content;
+    }
+}
+
+@mixin hover($hasActiveEffectOnMobile: true) {
+    @media (any-hover: hover) { // чтобы предотвратить эффект залипания на тачскринах
+        &:hover {
+            @content;
+        }
+    }
+
+    @if ($hasActiveEffectOnMobile) {
+        @media (any-hover: none) {
+            &:active {
+                @content;
+            }
+        }
+    }
+}
