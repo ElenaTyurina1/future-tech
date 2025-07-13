@@ -4,6 +4,7 @@ import VideoPlayerCollection from './VideoPlayer.js'
 import ExpandableContentCollection from './ExpandableContent.js'
 import InputMaskCollection from './InputMask.js'
 import SelectCollection from './Select.js'
+import Checkbox from './Checkbox.js'
 
 new Header()
 new TabsCollection()
@@ -11,3 +12,4 @@ new VideoPlayerCollection()
 new ExpandableContentCollection()
 new InputMaskCollection()
 new SelectCollection()
+new Checkbox()
